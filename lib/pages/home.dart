@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:refresher/pages/CategoryList.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -38,7 +39,8 @@ class HomeView extends StatelessWidget {
                   color: Colors.black,
                   fontWeight: FontWeight.w600)),
         ),
-        ListView.builder(itemBuilder: itemBuilder)
+        CategoryItem(Color.fromRGBO(168, 252, 172, 1), "Muffins",
+            "https://www.svgrepo.com/show/152178/muffin.svg")
       ],
     );
   }
