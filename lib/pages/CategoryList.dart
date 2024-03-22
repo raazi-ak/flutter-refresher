@@ -55,7 +55,7 @@ ListView DietItem(List<DietModel> diet) {
     itemCount: diet.length,
     itemBuilder: (context, index) => Container(
         margin: EdgeInsets.only(top: 20, bottom: 20, right: 20),
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
             color: diet[index].contColor,
             boxShadow: [
@@ -66,20 +66,17 @@ ListView DietItem(List<DietModel> diet) {
             ],
             borderRadius: BorderRadius.circular(20)),
         height: 150,
-        width: 100,
+        width: 300,
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              child: Container(
-                width: 50,
-                child: SvgPicture.network(
-                  diet[index].svgUrl,
-                  placeholderBuilder: (BuildContext context) => Container(
-                    padding: const EdgeInsets.all(20.0),
-                    child: const CircularProgressIndicator(),
-                  ),
+              child: SvgPicture.network(
+                diet[index].svgUrl,
+                placeholderBuilder: (BuildContext context) => Container(
+                  padding: const EdgeInsets.all(20.0),
+                  child: const CircularProgressIndicator(),
                 ),
               ),
             ),

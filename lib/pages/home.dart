@@ -12,11 +12,22 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final List<DietModel> dummyDiet = [
-    DietModel(dietName: 'Cereal Bowl', dietDescription: 'Easy|5 min|384 cal', svgUrl: "https://www.svgrepo.com/show/269879/cereal-wheat.svg", contColor: ),
+    DietModel(
+        dietName: 'Cereal Bowl',
+        dietDescription: 'Easy|5 min|384 cal',
+        svgUrl: "https://www.svgrepo.com/show/269879/cereal-wheat.svg",
+        contColor: Color.fromARGB(255, 255, 169, 169)),
     DietModel(
         dietName: 'Honey Pancakes',
-        dietDescription: 'Easy|30 minutes|409 cal '),
-    DietModel(dietName: 'Russian Salad', dietDescription: 'Easy|20 minutes|273 cal')
+        dietDescription: 'Easy|30 minutes|409 cal',
+        svgUrl: "https://www.svgrepo.com/show/235459/pancakes.svg",
+        contColor: Color.fromARGB(255, 242, 255, 147)),
+    DietModel(
+        dietName: 'Russian Salad',
+        dietDescription: 'Easy|20 minutes|273 cal',
+        svgUrl:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Salad-575436.svg/61px-Salad-575436.svg.png?20160610230938",
+        contColor: Color.fromARGB(255, 180, 255, 163))
   ];
   final List<CategoryModel> dummyCategory = [
     CategoryModel(
@@ -102,12 +113,12 @@ class _HomeViewState extends State<HomeView> {
                         fontSize: 16),
                   ),
                 ),
-                SizedBox(
-                  height: 300,
-                  child: DietItem(die),
-                )
               ],
             ),
+          ),
+          SizedBox(
+            height: 300,
+            child: DietItem(dummyDiet),
           )
         ],
       ),
