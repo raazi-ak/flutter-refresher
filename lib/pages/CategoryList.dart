@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -166,5 +167,58 @@ class DietModel {
   final String dietDescription;
   final Color contColor;
   final String svgUrl;
+  bool isSelected;
+}
+
+ListView PopularItem(List<Popular> popular) {
+  return ListView.separated(
+    padding: EdgeInsets.symmetric(vertical: 50),
+    separatorBuilder: (context, index) => SizedBox(
+      height: 100,
+    ),
+    itemCount: popular.length,
+    itemBuilder: (context, index) => Container(
+      height: 80,
+      width: 500,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          boxShadow: [
+            BoxShadow(
+                blurRadius: 20.0,
+                spreadRadius: 10.0,
+                blurStyle: BlurStyle.outer)
+          ]),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 5),
+              padding: EdgeInsets.all(10),
+              child: SvgPicture.network(
+                popular[index].svgUrl,
+                placeholderBuilder: (BuildContext context) => Container(
+                  padding: const EdgeInsets.all(20.0),
+                  child: const CircularProgressIndicator(),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    ),
+  );
+}
+
+class Popular {
+  Popular({
+    required this.popularTitle,
+    required this.popularDescription,
+    required this.svgUrl,
+  }) : isSelected = false;
+  final String popularTitle;
+  final String svgUrl;
+  final String popularDescription;
   bool isSelected;
 }
