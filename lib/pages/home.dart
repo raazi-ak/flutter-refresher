@@ -76,8 +76,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppHeader(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           SearchBar(),
           SizedBox(
@@ -89,10 +88,11 @@ class _HomeViewState extends State<HomeView> {
           ),
           SizedBox(height: 150, child: CategoryItem(dummyCategory)),
           SizedBox(
-            height: 15,
+            height: 5,
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(
+                top: 20.0, right: 20, left: 20, bottom: 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -117,9 +117,13 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           SizedBox(
-            height: 300,
+            height: 350,
             child: DietItem(dummyDiet),
-          )
+          ),
+          SizedBox(
+            height: 350,
+            child: DietItem(dummyDiet),
+          ),
         ],
       ),
     );
@@ -137,48 +141,6 @@ class _HomeViewState extends State<HomeView> {
                   color: Colors.black,
                   fontWeight: FontWeight.w600)),
         ),
-        // Container(
-        //     margin: EdgeInsets.only(top: 20, bottom: 20),
-        //     padding: EdgeInsets.all(15),
-        //     clipBehavior: Clip.hardEdge,
-        //     decoration: BoxDecoration(
-        //         color: category[0].contColor,
-        //         boxShadow: [
-        //           BoxShadow(
-        //               blurRadius: 10,
-        //               spreadRadius: -0.5,
-        //               color: Colors.black.withOpacity(0.1))
-        //         ],
-        //         borderRadius: BorderRadius.circular(20)),
-        //     height: 130,
-        //     width: 100,
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //       crossAxisAlignment: CrossAxisAlignment.center,
-        //       children: [
-        //         Expanded(
-        //           child: Padding(
-        //             padding: const EdgeInsets.all(4.0),
-        //             child: SvgPicture.network(
-        //               category[0].svgUrl,
-        //               placeholderBuilder: (BuildContext context) => Container(
-        //                 padding: const EdgeInsets.all(20.0),
-        //                 child: const CircularProgressIndicator(),
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //         const SizedBox(
-        //           height: 10,
-        //         ),
-        //         Text(
-        //           category[0].categoryName,
-        //           style: GoogleFonts.poppins(
-        //               textStyle: TextStyle(
-        //                   fontSize: 14.0, fontWeight: FontWeight.w500)),
-        //         )
-        //       ],
-        //     ))
       ],
     );
   }
